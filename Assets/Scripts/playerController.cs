@@ -23,16 +23,18 @@ void Start(){
 }
 void Update()
 {
+    if(canMovePlayer){
  		GetInformations();
    		UpdatePlayerTransform();
+    }
    
 }
 
 void GetInformations()
 {
     if (Input.GetMouseButtonDown(0)) {
-        speedX = 1;
-        speedY = 1;
+        speedX = 0.5f;
+        speedY = 0.5f;
         FirstTransform = Camera.main.ScreenToViewportPoint(Input.mousePosition);
     }
 

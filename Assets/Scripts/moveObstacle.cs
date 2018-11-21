@@ -10,11 +10,12 @@ public class moveObstacle : MonoBehaviour {
 	private GameObject endLocation;
 	private GameObject spawnLocation;
 
-	GameObject spawnController;
+	spawnController spawnController;
 
 	void Start () {
 		endLocation = GameObject.FindGameObjectWithTag("EndLocation");
 		spawnLocation = GameObject.FindGameObjectWithTag("Spawn");
+		spawnController =  GameObject.FindGameObjectWithTag("Spawn").GetComponent<spawnController>();
 	}
 	
 	void Update () {
@@ -27,7 +28,7 @@ public class moveObstacle : MonoBehaviour {
 		if(this.transform.position.z <= endLocation.transform.position.z){
 			this.gameObject.SetActive(false);
 			this.gameObject.transform.position = spawnLocation.transform.position;
-			spawnLocation.GetComponent<spawnController>().SpawnNew();
+			spawnController.SpawnNew();
 		}
 	}
 }
