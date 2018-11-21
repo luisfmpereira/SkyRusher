@@ -4,13 +4,20 @@ using UnityEngine;
 
 public class spawnController : MonoBehaviour {
 
-	// Use this for initialization
+	public GameObject [] Obstacles;
+
+	
 	void Start () {
 		
 	}
 	
-	// Update is called once per frame
 	void Update () {
 		
+	}
+
+
+	public void SpawnNew(){
+		var newSpawn = (int)Random.Range(0,Obstacles.Length);
+		Obstacles[newSpawn].gameObject.SetActive(true);
 	}
 }
