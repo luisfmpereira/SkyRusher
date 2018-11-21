@@ -6,6 +6,7 @@ TagManager:
   tags:
   - EndLocation
   - Spawn
+  - Obstacle
   layers:
   - Default
   - TransparentFX

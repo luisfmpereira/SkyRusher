@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class playerController : MonoBehaviour {
 private Vector3 FirstTransform;
@@ -80,5 +81,15 @@ void GetInformations()
         if (playerT.position.y < MinY)
             playerT.position = new Vector3(playerT.position.x, MinY, playerT.position.z);
 
+    }
+
+
+
+    void OnCollisionEnter(Collision other){
+
+        if(other.gameObject.CompareTag("Obstacle")){
+            Debug.Log("alo");
+            SceneManager.LoadScene(0);
+        }
     }
 }
