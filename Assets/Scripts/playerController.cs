@@ -88,7 +88,6 @@ void GetInformations()
     void OnCollisionEnter(Collision other){
 
         if(other.gameObject.CompareTag("Obstacle")){
-            Debug.Log("alo");
             SceneManager.LoadScene(0);
         }
     }
