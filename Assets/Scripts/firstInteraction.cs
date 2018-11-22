@@ -8,9 +8,11 @@ public class firstInteraction : MonoBehaviour {
 	playerController player;
 	spawnController spawnController;
 	public Text tapToStart;
+	scoreHandler scoreHandler;
 	void Start () {
 		player = GameObject.FindGameObjectWithTag("Player").GetComponent<playerController>();
 		spawnController = GameObject.FindGameObjectWithTag("Spawn").GetComponent<spawnController>();
+		scoreHandler = GameObject.FindGameObjectWithTag("ScoreHandler").GetComponent<scoreHandler>();
 	}
 	
 	void Update () {

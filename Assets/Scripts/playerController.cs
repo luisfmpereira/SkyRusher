@@ -17,13 +17,12 @@ public float MinY;
 private bool mouseButtonUp;
 public bool canMovePlayer;
 
-scoreHandler scoreHandler;
+public scoreHandler scoreHandler;
 public Transform playerT;
 
 void Start(){
     playerT = GetComponent<Transform>();
-    scoreHandler = GameObject.FindGameObjectWithTag("ScoreHandler").
-    GetComponent<scoreHandler>();
+    scoreHandler = GameObject.FindGameObjectWithTag("ScoreHandler").GetComponent<scoreHandler>();
 }
 void Update()
 {
@@ -91,7 +90,9 @@ void GetInformations()
     void OnCollisionEnter(Collision other){
 
         if(other.gameObject.CompareTag("Obstacle")){
+            scoreHandler.UpdateHighscore();
             SceneManager.LoadScene(0);
+                        
         }
     }
 
@@ -99,7 +100,7 @@ void GetInformations()
         if(other.gameObject.CompareTag("Collectible")){
             other.gameObject.SetActive(false);
             scoreHandler.AddScore(10);
-            Debug.Log(scoreHandler.score);
+
         }
     }
 }

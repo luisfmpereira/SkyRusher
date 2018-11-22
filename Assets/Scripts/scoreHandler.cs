@@ -7,6 +7,8 @@ public class scoreHandler : MonoBehaviour {
 
 	public float score;
 	playerController playerController;
+	public Text scoreText;
+	public Text highscoreText;
 
 	void Start(){
 		playerController = GameObject.FindGameObjectWithTag("Player").
@@ -19,7 +21,18 @@ public class scoreHandler : MonoBehaviour {
 
 
 	void Update(){
-		if(playerController.canMovePlayer)
-			AddScore(Time.deltaTime);
+		if(playerController.canMovePlayer){
+			scoreText.gameObject.SetActive(true);
+			AddScore((Time.deltaTime/2f));
+			scoreText.text = "Score: " + ((int)score).ToString();
+			}
+		else
+			scoreText.text = "Highscore: " + ((int)PlayerPrefs.GetFloat("Highscore")).ToString();
+	}
+
+	public void UpdateHighscore(){
+		if(score > PlayerPrefs.GetFloat("Highscore")){
+			PlayerPrefs.SetFloat("Highscore",score);
+		}
 	}
 }
