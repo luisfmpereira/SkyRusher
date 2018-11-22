@@ -7,6 +7,8 @@ TagManager:
   - EndLocation
   - Spawn
   - Obstacle
+  - Collectible
+  - ScoreHandler
   layers:
   - Default
   - TransparentFX

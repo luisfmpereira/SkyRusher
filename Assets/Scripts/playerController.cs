@@ -98,8 +98,8 @@ void GetInformations()
     void OnTriggerEnter(Collider other){
         if(other.gameObject.CompareTag("Collectible")){
             other.gameObject.SetActive(false);
-            Debug.Log(scoreHandler.score);
             scoreHandler.AddScore(10);
+            Debug.Log(scoreHandler.score);
         }
     }
 }
